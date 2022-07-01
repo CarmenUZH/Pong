@@ -34,14 +34,12 @@ namespace Pong
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Pong));
             this.player1 = new System.Windows.Forms.PictureBox();
             this.Player2 = new System.Windows.Forms.PictureBox();
-            this.title = new System.Windows.Forms.PictureBox();
             this.ball = new System.Windows.Forms.PictureBox();
             this.score1 = new System.Windows.Forms.Label();
             this.score2 = new System.Windows.Forms.Label();
             this.pongtimer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.player1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Player2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.title)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ball)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,17 +60,6 @@ namespace Pong
             this.Player2.Size = new System.Drawing.Size(36, 294);
             this.Player2.TabIndex = 1;
             this.Player2.TabStop = false;
-            // 
-            // title
-            // 
-            this.title.BackColor = System.Drawing.Color.Black;
-            this.title.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("title.BackgroundImage")));
-            this.title.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.title.Location = new System.Drawing.Point(715, 12);
-            this.title.Name = "title";
-            this.title.Size = new System.Drawing.Size(512, 142);
-            this.title.TabIndex = 2;
-            this.title.TabStop = false;
             // 
             // ball
             // 
@@ -112,7 +99,7 @@ namespace Pong
             // pongtimer
             // 
             this.pongtimer.Enabled = true;
-            this.pongtimer.Interval = 20;
+            this.pongtimer.Interval = 10;
             this.pongtimer.Tick += new System.EventHandler(this.pongtimer_Tick);
             // 
             // Pong
@@ -120,12 +107,12 @@ namespace Pong
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1966, 1576);
             this.Controls.Add(this.ball);
             this.Controls.Add(this.Player2);
             this.Controls.Add(this.player1);
-            this.Controls.Add(this.title);
             this.Controls.Add(this.score1);
             this.Controls.Add(this.score2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -137,7 +124,6 @@ namespace Pong
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Pong_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.player1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Player2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.title)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ball)).EndInit();
             this.ResumeLayout(false);
 
@@ -147,7 +133,6 @@ namespace Pong
 
         private PictureBox player1;
         private PictureBox Player2;
-        private PictureBox title;
         private PictureBox ball;
         internal Label score1;
         internal Label score2;

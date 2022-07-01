@@ -3,8 +3,8 @@ namespace Pong
     public partial class Pong : Form
     {
         //Location Variables
-        int ballXCoordinate = 10;
-        int ballYCoordinate = 10;
+        int ballXCoordinate = 12;
+        int ballYCoordinate = 12;
 
         //Score Variables
         int player1Score = 0;
@@ -12,8 +12,6 @@ namespace Pong
 
         //size variables
         int bottomBoundary;
-        int centerPoint;
-        int ticks;
         int xMidpoint;
         int yMidpoint;
 
@@ -50,8 +48,7 @@ namespace Pong
             //Adjust where ball is
             ball.Top -= ballYCoordinate; //subtract 5 from top
             ball.Left -= ballXCoordinate;
-            ticks ++;
-            score1.Text = ticks.ToString();
+        
 
             if(ball.Left < 0)
             {
@@ -87,21 +84,21 @@ namespace Pong
             //move player up
             if(player1DetectedUp == true && player1.Top > 0)
             {
-                player1.Top -= 10; //move 10px
+                player1.Top -= 50; //move 10px
             }
             if (player1DetectedDown == true && player1.Top < bottomBoundary)
             {
-                player1.Top += 10; //move 10px
+                player1.Top += 50; //move 10px
             }
             //------------player2---------------
             //move player up
             if (player2DetectedUp == true && Player2.Top > 0)
             {
-                Player2.Top -= 10; //move 10px
+                Player2.Top -= 49; //move 10px
             }
             if (player2DetectedDown == true && Player2.Top < bottomBoundary)
             {
-                Player2.Top += 10; //move 10px
+                Player2.Top += 49; //move 10px
             }
             if (player1Score >= 10 || player2Score>= 10)
             {
