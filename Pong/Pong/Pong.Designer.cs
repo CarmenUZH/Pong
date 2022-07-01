@@ -99,7 +99,7 @@ namespace Pong
             // pongtimer
             // 
             this.pongtimer.Enabled = true;
-            this.pongtimer.Interval = 10;
+            this.pongtimer.Interval = 15;
             this.pongtimer.Tick += new System.EventHandler(this.pongtimer_Tick);
             // 
             // Pong
