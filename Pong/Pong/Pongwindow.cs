@@ -55,9 +55,10 @@ namespace Pong
             
             if(player2Score > 5 || player1Score > 5)
             {
-                if (tickcounter % 3 == 0) //Why did I DO this??
+                label1.Text = "Oh shit es wird spannend";
+                if (tickcounter % 10 == 0) //Why did I DO this??
                 {
-                    this.BackColor = Color.Blue;
+                    this.BackColor = Color.DarkRed;
                 }
                 else
                 {

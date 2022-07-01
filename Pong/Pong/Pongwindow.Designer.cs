@@ -38,6 +38,8 @@ namespace Pong
             this.score1 = new System.Windows.Forms.Label();
             this.score2 = new System.Windows.Forms.Label();
             this.pongtimer = new System.Windows.Forms.Timer(this.components);
+            this.spannung = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.player1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Player2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ball)).BeginInit();
@@ -102,21 +104,45 @@ namespace Pong
             this.pongtimer.Interval = 15;
             this.pongtimer.Tick += new System.EventHandler(this.pongtimer_Tick);
             // 
-            // Pong
+            // spannung
+            // 
+            this.spannung.BackColor = System.Drawing.Color.Transparent;
+            this.spannung.Font = new System.Drawing.Font("Impact", 19.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.spannung.Location = new System.Drawing.Point(859, 70);
+            this.spannung.Name = "spannung";
+            this.spannung.Size = new System.Drawing.Size(8, 8);
+            this.spannung.TabIndex = 6;
+            this.spannung.Text = "-";
+            this.spannung.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(826, 59);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(78, 32);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "label1";
+            // 
+            // Pongwindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
+            this.BackgroundImage = global::Pong.Properties.Resources.wiki;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1966, 1576);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.spannung);
             this.Controls.Add(this.ball);
             this.Controls.Add(this.Player2);
             this.Controls.Add(this.player1);
             this.Controls.Add(this.score1);
             this.Controls.Add(this.score2);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Pong";
+            this.Name = "Pongwindow";
             this.Text = "Play pong";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Pong_KeyDown);
@@ -125,6 +151,7 @@ namespace Pong
             ((System.ComponentModel.ISupportInitialize)(this.Player2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ball)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -136,5 +163,7 @@ namespace Pong
         internal Label score1;
         internal Label score2;
         private System.Windows.Forms.Timer pongtimer;
+        private Label spannung;
+        private Label label1;
     }
 }
