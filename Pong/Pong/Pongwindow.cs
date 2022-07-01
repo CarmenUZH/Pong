@@ -1,6 +1,6 @@
 namespace Pong
 {
-    public partial class Pong : Form
+    public partial class Pongwindow : Form
     {
         //Location Variables
         int ballXCoordinate = 10;
@@ -15,6 +15,8 @@ namespace Pong
         int xMidpoint;
         int yMidpoint;
 
+        int tickcounter; 
+
         //Detection variables
         bool player1DetectedUp;
         bool player2DetectedUp;
@@ -24,7 +26,7 @@ namespace Pong
         //Special key
         int spaceBarClicked = 0;
 
-        public Pong()
+        public Pongwindow()
         {
             InitializeComponent();
             bottomBoundary = ClientSize.Height - player1.Height;
@@ -43,12 +45,25 @@ namespace Pong
 
         private void pongtimer_Tick(object sender, EventArgs e)
         {
+            tickcounter++;
+            
             Random newBallSpot = new Random();
             int newSpot = newBallSpot.Next(100, ClientSize.Height - 100);
             //Adjust where ball is
             ball.Top -= ballYCoordinate; //subtract 5 from top
             ball.Left -= ballXCoordinate;
-        
+            
+            if(player2Score > 5 || player1Score > 5)
+            {
+                if (tickcounter % 3 == 0) //Why did I DO this??
+                {
+                    this.BackColor = Color.Blue;
+                }
+                else
+                {
+                    this.BackColor = Color.Red;
+                }
+            }
 
             if(ball.Left < 0)
             {

@@ -10,7 +10,7 @@ namespace Pong
         {
            
             ApplicationConfiguration.Initialize();
-            Application.Run(new Pong());
+            Application.Run(new Pongwindow());
         }
     }
 }

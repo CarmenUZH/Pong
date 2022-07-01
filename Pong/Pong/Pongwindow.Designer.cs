@@ -2,7 +2,7 @@
 
 namespace Pong
 {
-    partial class Pong
+    partial class Pongwindow
     {
         /// <summary>
         ///  Required designer variable.
@@ -31,7 +31,7 @@ namespace Pong
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Pong));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Pongwindow));
             this.player1 = new System.Windows.Forms.PictureBox();
             this.Player2 = new System.Windows.Forms.PictureBox();
             this.ball = new System.Windows.Forms.PictureBox();
@@ -107,7 +107,6 @@ namespace Pong
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1966, 1576);
             this.Controls.Add(this.ball);
