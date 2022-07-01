@@ -28,13 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Pong));
             this.player1 = new System.Windows.Forms.PictureBox();
             this.Player2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.title = new System.Windows.Forms.PictureBox();
+            this.ball = new System.Windows.Forms.PictureBox();
+            this.score1 = new System.Windows.Forms.Label();
+            this.score2 = new System.Windows.Forms.Label();
+            this.pongtimer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.player1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Player2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.title)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ball)).BeginInit();
             this.SuspendLayout();
             // 
             // player1
@@ -55,16 +61,55 @@
             this.Player2.TabIndex = 1;
             this.Player2.TabStop = false;
             // 
-            // pictureBox1
+            // title
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Black;
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(715, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(512, 142);
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
+            this.title.BackColor = System.Drawing.Color.Black;
+            this.title.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("title.BackgroundImage")));
+            this.title.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.title.Location = new System.Drawing.Point(715, 12);
+            this.title.Name = "title";
+            this.title.Size = new System.Drawing.Size(512, 142);
+            this.title.TabIndex = 2;
+            this.title.TabStop = false;
+            // 
+            // ball
+            // 
+            this.ball.BackColor = System.Drawing.Color.Crimson;
+            this.ball.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ball.BackgroundImage")));
+            this.ball.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ball.Location = new System.Drawing.Point(952, 702);
+            this.ball.Name = "ball";
+            this.ball.Size = new System.Drawing.Size(51, 54);
+            this.ball.TabIndex = 3;
+            this.ball.TabStop = false;
+            // 
+            // score1
+            // 
+            this.score1.BackColor = System.Drawing.Color.Transparent;
+            this.score1.Font = new System.Drawing.Font("Haettenschweiler", 25.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.score1.ForeColor = System.Drawing.Color.Aqua;
+            this.score1.Location = new System.Drawing.Point(143, 12);
+            this.score1.Name = "score1";
+            this.score1.Size = new System.Drawing.Size(139, 152);
+            this.score1.TabIndex = 4;
+            this.score1.Text = "0";
+            this.score1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // score2
+            // 
+            this.score2.BackColor = System.Drawing.Color.Transparent;
+            this.score2.Font = new System.Drawing.Font("Haettenschweiler", 25.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.score2.ForeColor = System.Drawing.Color.Gold;
+            this.score2.Location = new System.Drawing.Point(1732, 29);
+            this.score2.Name = "score2";
+            this.score2.Size = new System.Drawing.Size(139, 152);
+            this.score2.TabIndex = 5;
+            this.score2.Text = "0";
+            this.score2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pongtimer
+            // 
+            this.pongtimer.Tick += new System.EventHandler(this.pongtimer_Tick);
             // 
             // Pong
             // 
@@ -74,7 +119,10 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1966, 1576);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.score2);
+            this.Controls.Add(this.score1);
+            this.Controls.Add(this.ball);
+            this.Controls.Add(this.title);
             this.Controls.Add(this.Player2);
             this.Controls.Add(this.player1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -84,7 +132,8 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.player1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Player2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.title)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ball)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -93,6 +142,10 @@
 
         private PictureBox player1;
         private PictureBox Player2;
-        private PictureBox pictureBox1;
+        private PictureBox title;
+        private PictureBox ball;
+        internal Label score1;
+        internal Label score2;
+        private System.Windows.Forms.Timer pongtimer;
     }
 }
