@@ -38,7 +38,7 @@ namespace Pong
             this.ball = new System.Windows.Forms.PictureBox();
             this.score1 = new System.Windows.Forms.Label();
             this.score2 = new System.Windows.Forms.Label();
-         
+            this.pongtimer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.player1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Player2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.title)).BeginInit();
@@ -111,26 +111,23 @@ namespace Pong
             // 
             // pongtimer
             // 
-
-            this.pongtimer = new Timer();
             this.pongtimer.Enabled = true;
             this.pongtimer.Interval = 20;
-            this.pongtimer.Tick += new EventHandler(this.pongtimer_Tick);
+            this.pongtimer.Tick += new System.EventHandler(this.pongtimer_Tick);
             // 
             // Pong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1966, 1576);
-            this.Controls.Add(this.score2);
-            this.Controls.Add(this.score1);
             this.Controls.Add(this.ball);
-            this.Controls.Add(this.title);
             this.Controls.Add(this.Player2);
             this.Controls.Add(this.player1);
+            this.Controls.Add(this.title);
+            this.Controls.Add(this.score1);
+            this.Controls.Add(this.score2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Pong";

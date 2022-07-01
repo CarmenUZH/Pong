@@ -40,7 +40,7 @@ namespace Pong
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            //damn
         }
 
         private void pongtimer_Tick(object sender, EventArgs e)
