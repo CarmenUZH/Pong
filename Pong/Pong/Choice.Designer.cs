@@ -77,6 +77,7 @@
             this.Controls.Add(this.Stickman);
             this.Controls.Add(this.Char14real);
             this.Controls.Add(this.Char1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CharacterForm";
             this.Text = "Choose a character";
