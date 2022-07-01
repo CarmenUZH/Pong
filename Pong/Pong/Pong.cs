@@ -50,6 +50,26 @@ namespace Pong
             ball.Top -= ballYCoordinate; //subtract 5 from top
             ball.Left -= ballXCoordinate;
 
+            if(ball.Left < 0)
+            {
+                ball.Left = xMidpoint;
+                ball.Top = newSpot;
+                ballXCoordinate = -ballXCoordinate;
+                player2Score++;
+                score2.Text = player2Score.ToString();
+
+            }
+
+            if (ball.Left + ball.Width > ClientSize.Width)
+            {
+                ball.Left = xMidpoint;
+                ball.Top = newSpot;
+                ballXCoordinate = -ballXCoordinate;
+                player1Score++;
+                score1.Text = player1Score.ToString();
+
+            }
+
         }
     }
 }
