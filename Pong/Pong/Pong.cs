@@ -70,6 +70,57 @@ namespace Pong
 
             }
 
+            //ensure ball is in screen
+            if(ball.Top < 0 || ball.Top + Height > ClientSize.Height)
+            {
+                ballYCoordinate = -ballYCoordinate; //just go to the oother direction LMAO
+            }
+            //check if ball hits player 
+            if (ball.Bounds.IntersectsWith(player1.Bounds)|| ball.Bounds.IntersectsWith(Player2.Bounds))
+            {
+                ballXCoordinate -= ballXCoordinate;
+            }
+
+            //move player up
+            if(player1DetectedUp == true && player1.Top > 0)
+            {
+                player1.Top -= 10; //move 10px
+            }
+            if (player1DetectedDown == true && player1.Top < bottomBoundary)
+            {
+                player1.Top += 10; //move 10px
+            }
+            //------------player2---------------
+            //move player up
+            if (player2DetectedUp == true && Player2.Top > 0)
+            {
+                Player2.Top -= 10; //move 10px
+            }
+            if (player2DetectedDown == true && Player2.Top < bottomBoundary)
+            {
+                Player2.Top += 10; //move 10px
+            }
+            if (player1Score >= 10 || player2Score>= 10)
+            {
+                pongtimer.Stop();
+            }
+
+
+        }
+
+        private void Pong_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void Pong_KeyDown(object sender, KeyEventArgs e)
+        {
+            //if player presses up move up
+            if (e.KeyCode == Keys.Up) { player2DetectedUp = true; }
+            if (e.KeyCode == Keys.W) { player1DetectedUp = true; }
+            //if player presses down move down
+            if (e.KeyCode == Keys.Down) { player2DetectedDown = true; }
+            if (e.KeyCode == Keys.S) { player1DetectedDown = true; }
         }
     }
 }
