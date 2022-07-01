@@ -1,4 +1,6 @@
-﻿namespace Pong
+﻿using Timer = System.Windows.Forms.Timer;
+
+namespace Pong
 {
     partial class Pong
     {
@@ -36,7 +38,7 @@
             this.ball = new System.Windows.Forms.PictureBox();
             this.score1 = new System.Windows.Forms.Label();
             this.score2 = new System.Windows.Forms.Label();
-            this.pongtimer = new System.Windows.Forms.Timer(this.components);
+         
             ((System.ComponentModel.ISupportInitialize)(this.player1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Player2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.title)).BeginInit();
@@ -74,7 +76,7 @@
             // 
             // ball
             // 
-            this.ball.BackColor = System.Drawing.Color.Crimson;
+            this.ball.BackColor = System.Drawing.Color.Transparent;
             this.ball.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ball.BackgroundImage")));
             this.ball.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ball.Location = new System.Drawing.Point(952, 702);
@@ -109,9 +111,11 @@
             // 
             // pongtimer
             // 
+
+            this.pongtimer = new Timer();
             this.pongtimer.Enabled = true;
-            this.pongtimer.Interval = 150;
-            this.pongtimer.Tick += new System.EventHandler(this.pongtimer_Tick);
+            this.pongtimer.Interval = 20;
+            this.pongtimer.Tick += new EventHandler(this.pongtimer_Tick);
             // 
             // Pong
             // 

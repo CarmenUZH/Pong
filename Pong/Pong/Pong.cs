@@ -3,8 +3,8 @@ namespace Pong
     public partial class Pong : Form
     {
         //Location Variables
-        int ballXCoordinate = 5;
-        int ballYCoordinate = 5;
+        int ballXCoordinate = 10;
+        int ballYCoordinate = 10;
 
         //Score Variables
         int player1Score = 0;
@@ -13,6 +13,7 @@ namespace Pong
         //size variables
         int bottomBoundary;
         int centerPoint;
+        int ticks;
         int xMidpoint;
         int yMidpoint;
 
@@ -49,6 +50,8 @@ namespace Pong
             //Adjust where ball is
             ball.Top -= ballYCoordinate; //subtract 5 from top
             ball.Left -= ballXCoordinate;
+            ticks ++;
+            score1.Text = ticks.ToString();
 
             if(ball.Left < 0)
             {
@@ -71,14 +74,14 @@ namespace Pong
             }
 
             //ensure ball is in screen
-            if(ball.Top < 0 || ball.Top + Height > ClientSize.Height)
+            if(ball.Top < 0 || ball.Top + ball.Height > ClientSize.Height)
             {
                 ballYCoordinate = -ballYCoordinate; //just go to the oother direction LMAO
             }
             //check if ball hits player 
             if (ball.Bounds.IntersectsWith(player1.Bounds)|| ball.Bounds.IntersectsWith(Player2.Bounds))
             {
-                ballXCoordinate -= ballXCoordinate;
+                ballXCoordinate = -ballXCoordinate;
             }
 
             //move player up
@@ -110,7 +113,12 @@ namespace Pong
 
         private void Pong_KeyUp(object sender, KeyEventArgs e)
         {
-
+            //if player presses up move up
+            if (e.KeyCode == Keys.Up) { player2DetectedUp = false; }
+            if (e.KeyCode == Keys.W) { player1DetectedUp = false; }
+            //if player presses down move down
+            if (e.KeyCode == Keys.Down) { player2DetectedDown = false; }
+            if (e.KeyCode == Keys.S) { player1DetectedDown = false; }
         }
 
         private void Pong_KeyDown(object sender, KeyEventArgs e)
@@ -121,6 +129,19 @@ namespace Pong
             //if player presses down move down
             if (e.KeyCode == Keys.Down) { player2DetectedDown = true; }
             if (e.KeyCode == Keys.S) { player1DetectedDown = true; }
+
+            //pause game
+            if (e.KeyCode == Keys.Space) { 
+            if(spaceBarClicked % 2 == 0)
+                {
+                    pongtimer.Stop();
+                }
+                else
+                {
+                    pongtimer.Start();
+                }
+            }
+           
         }
     }
 }
